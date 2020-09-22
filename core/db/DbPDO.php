@@ -1,8 +1,10 @@
 <?php 
 
-namespace Core;
-    
-class Db
+namespace Core\Db;
+
+use Core\Db\DBInterfaces;
+
+class DbPDO implements DBInterfaces
 {
     private static $_instance = null;
     private $_pdo;
@@ -43,7 +45,7 @@ class Db
         }
     }
 
-    function select($tableName, array $where = [])
+    public function select($tableName, array $where = [])
     {
         $wherereq = "";
         $where2 = [];

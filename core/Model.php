@@ -3,6 +3,7 @@
 namespace Core;
 
 use Core\Db;
+use Core\Db\DBFactory;
 
 class Model
 {
@@ -18,7 +19,7 @@ class Model
   public static function getDb()
   {
     if (!self::$_db) {
-      self::$_db = Db::getInstance();
+      self::$_db = DBFactory::getDb('pdo');
     }
     return self::$_db;
   }
